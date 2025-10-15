@@ -18,7 +18,7 @@ public class LocalServer {
     private static final ConcurrentHashMap<String, String> approvalStatus = new ConcurrentHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(8081), 0);
 
         server.createContext("/", new StaticFileHandler());
         server.createContext("/approval-request", new ApprovalRequestHandler());
@@ -29,7 +29,7 @@ public class LocalServer {
         server.setExecutor(null);
         server.start();
 
-        System.out.println("Server started on http://localhost:8080");
+        System.out.println("Server started on http://localhost:8081");
     }
 
     static class StaticFileHandler implements HttpHandler {
